@@ -1,0 +1,106 @@
+
+/*
+#include <QImage>
+struct hBuffer {
+	quint32		w, h, depth;
+	quint32		wMat, hMat, depthMat;
+	uchar***	link; //QPointer 
+	
+	hBuffer() {
+		w = h = depth = wMat = hMat = depthMat = 0;
+		link = 0;
+	}
+	~hBuffer() {
+	}
+	
+	hBuffer( quint32 _w, quint32 _h, quint32 _depth )   {
+		wMat = w = _w;
+		hMat = h = _h;
+		depthMat = depth = _depth;
+		link = new uchar** [w];
+		for ( int i = 0; i < w; i++ ) {
+			link[i] = new uchar* [h];
+			for ( int j = 0; j < h; j++ ) {
+				link[i][j] = new uchar [depth];
+				for ( int c = 0; c < depth; c++ ) {
+					link[i][j][c] = 0;
+				}
+			}
+		}
+	}
+	
+	void fromMat( cv::Mat in ) {
+		if ( !link ) return;
+		wMat = in.cols;
+		hMat = in.rows;
+		depthMat = 3;
+		for ( int i = 0; i < in.cols; i++ )
+			for ( int j = 0; j < in.rows; j++ )
+				for ( int c = 0; c < depthMat; c++ )
+					link[i][j][c] = in.at<cv::Vec3b>( j, i )[c];
+	}
+	void fromImage( QImage in ) {
+		if ( !link ) return;
+		wMat = in.width();
+		hMat = in.height();
+		depthMat = 3;
+		for ( int i = 0; i < wMat; i++ )
+			for ( int j = 0; j < hMat; j++ ) {
+				QRgb rgb = in.pixel( wMat - i - 1, j );
+				link[i][j][0] = qBlue( rgb );
+				link[i][j][1] = qGreen( rgb );
+				link[i][j][2] = qRed( rgb );
+			}
+	}
+	cv::Mat toMat() {
+		if ( !link ) return cv::Mat();
+		cv::Mat out( cv::Size( wMat, hMat ), CV_8UC3, cv::Scalar::all( 0 ) );
+		for ( int i = 0; i < out.cols; i++ )
+			for ( int j = 0; j < out.rows; j++ )
+				for ( int c = 0; c < depthMat; c++ )
+					out.at<cv::Vec3b>( j, i )[c] = link[i][out.rows - j - 1][c]; //out.cols - i - 1 //
+		return out;
+	}
+	void release() {
+		if ( !link ) return;
+		for ( int i = 0; i < w; i++ ) {
+			for ( int j = 0; j < h; j++ ) {
+				for ( int c = 0; c < depth; c++ ) {
+					delete [] link[i][j];
+				}
+				delete [] link[i];
+			}
+			delete [] link;
+		}
+	}
+};
+*/
+
+
+/*
+auto testCloud = cv::Mat_< cv::Vec3f >{ cv::Size{ 200 * 200, 200 } };
+auto testCloudColors = cv::Mat_< cv::Vec3b >{ cv::Size{ 200 * 200, 200 } };
+cv::viz::WCloud testWidget{ testCloud };
+auto testInit = false;
+*/
+/*
+if ( !testInit ) {
+testCloud.forEach( [ & ] ( auto && value, auto && position ) {
+auto x = position[ 1 ] / 200;
+auto y = position[ 1 ] % 200;
+auto z = position[ 0 ];
+auto && point = testCloud.at< cv::Vec3f >( position );
+auto && color = testCloudColors.at< cv::Vec3b >( position );
+
+color = cv::Vec3i{ x % 255, y % 255, z % 255 };
+auto alpha = static_cast< int >( 255.0 * ( x * y * z / ( 200.0 * 200.0 * 200.0 ) ) );
+auto chance = alpha / 255.0;
+auto rand = std::rand() % 1000 / 1000.0;
+point = rand < chance ? cv::Vec3i{ x, y, z } : cv::Vec3i{ 0, 0, 0 };
+} );
+testWidget = { testCloud, testCloudColors };
+testInit = true;
+}
+
+window.showWidget( "testWidget Cloud", testWidget );
+*/

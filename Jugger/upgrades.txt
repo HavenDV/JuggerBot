@@ -1,0 +1,106 @@
+// Сделать систему смайлов проще / Анимация
+// Сделать выделение лиц [ ] / Доделать больше вариантов \/< круговая цель
+// codegenerator
+// Оффлайн воспроизведение текста
+// Распознавание звука / Добиться приемлимой точности
+// Эмуляция ручного ввода, задержка перед каждой буквой
+// Сканер ВК. Идентификация лица.
+// Потестить QCamera на телефоне.
+// Поиск подизображения по шаблону / Расширить изначальное изображение, найти центр прямоугольника
+
+//ADMIN FACE
+
+//UMat
+// cv::DataType<float>::type;
+
+// char* const != const char*
+
+#include <windows.h>
+auto lib = LoadLibrary( L"bla.dll" );
+auto a = GetProcAddress( lib, "run" );
+
+for ( auto i : Mat_<Vec3b>( in ) );
+std::for_each( in.begin<Vec3b>(), in.end<Vec3b>(), [](Vec3b &i){ return true; });
+out.forEach<cv::Vec3b>( []( cv::Vec3b & i, const int position[] );
+
+namespace Colors { std::constexpr int a=1; }
+
+std::string operator "" s(const char* str, size_t size) {
+        return std::string(str, size);
+}
+
+#pragma block_loop
+
+std::optional
+
+#include <QFont>
+#include <QFontInfo>
+#include <QFontDatabase>
+//QFontDatabase db;
+//for (auto &f : db.families())
+//	qDebug() << f;
+//QFont qfont(db.families().at(rand()%100));
+//QFontInfo info(qfont);
+//if (!db.families().contains(familyName))
+//	qWarning() << familyName << "no contains in QFontDatabase";
+
+/*
+#include <pplawait.h>
+#include <experimental/generator>
+/*
+#include <experimental\resumable>
+#include <experimental\filesystem>
+#include <experimental\string>
+#include <experimental\xutility>
+#include <iostream>
+#include <cmath>
+#include <thread>
+#include <future>
+#include <functional>
+#include <ppltasks.h>
+#include <filesystem>
+
+//std::experimental::generator<int>;
+template < typename Iter, typename T1 >
+std::experimental::generator< T1 > lazy_tform( Iter beg, Iter end, T1 func ) __resumable {
+	for ( auto it = beg; it != end; ++it ) {
+		yield func( *it );
+	}
+}
+
+
+concurrency::task<std::string> read( std::string file, std::string suffix ) __resumable {
+	std::istream fi = __await std::experimental::open( file );
+	std::string ret, chunk;
+	while ( ( chunk = __await fi.read() ).size() )
+		ret += chunk + suffix;
+	return ret;
+}
+
+std::packaged_task<void> copyFile_res( const std::string inFilePath, const std::string outFilePath ) __resumable {
+	auto inFile = std::make_shared<std::ifstream>( inFilePath, std::ios::binary | std::ios::ate );
+	inFile->seekg( 0, inFile->beg );
+	auto outFile = std::make_shared<std::ofstream>( outFilePath, std::ios::binary );
+
+	while ( true ) {
+		std::shared_ptr<std::string> s = __await readFileChunk( inFile, 4096 );
+		if ( s->empty() ) { break; }
+		__await writeFileChunk( outFile, s );
+	}
+}
+
+auto lambda = [] ( auto value ) {
+return value;
+};
+std::vector< int > values = { 1, 2, 3, 4, 4, 5 };
+auto generator = lazy_tform( values.begin(), values.end(), [] ( auto value ) {
+return value;
+} );
+for ( auto && value : generator ) {
+std::cout << value;
+}
+*/
+
+//void integral(InputArray src, OutputArray sum, int sdepth)
+
+	
